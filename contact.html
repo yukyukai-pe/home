@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ・入会申込 | 悠久会技術士部会</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1><a href="index.html">悠久会技術士部会</a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="history.html">会のあゆみ</a></li>
+                    <li><a href="contact.html" class="active">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h2>お問い合わせ・入会申込</h2>
+        <p>ご質問や入会に関するお問い合わせをお待ちしております</p>
+    </div>
+
+    <section class="section container">
+        <div class="contact-form-container">
+            <form id="contactForm" action="mailto:yuukyukaipe@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="inquiryType">お問い合わせ種別 <span class="required">*</span></label>
+                    <select id="inquiryType" name="inquiryType" required>
+                        <option value="">選択してください</option>
+                        <option value="inquiry">一般のお問い合わせ</option>
+                        <option value="join">入会申込</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">お名前 <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">メールアドレス <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group" id="graduationDeptGroup" style="display: none;">
+                    <label for="graduationDept">卒業学科 <span class="required">*</span></label>
+                    <input type="text" id="graduationDept" name="graduationDept" placeholder="例：土木工学科">
+                </div>
+
+                <div class="form-group" id="graduationYearGroup" style="display: none;">
+                    <label for="graduationYear">卒年 <span class="required">*</span></label>
+                    <input type="text" id="graduationYear" name="graduationYear" placeholder="例：平成15年">
+                </div>
+
+                <div class="form-group" id="departmentGroup" style="display: none;">
+                    <label for="department">取得部門（技術士の場合）</label>
+                    <input type="text" id="department" name="department" placeholder="例：建設部門">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">お問い合わせ内容・メッセージ <span class="required">*</span></label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+
+                <div class="form-note">
+                    <p>※入会希望の方は、お名前・卒業学科・卒年・取得部門をお知らせください。</p>
+                    <p>※送信後、事務局（yuukyukaipe@gmail.com）よりご連絡いたします。</p>
+                </div>
+
+                <div class="center-btn">
+                    <button type="submit" class="btn btn-primary">送信する</button>
+                    <button type="reset" class="btn btn-secondary" style="margin-left: 10px;">リセット</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="section bg-gray">
+        <div class="container">
+            <h3 class="section-title">連絡先情報</h3>
+            <div class="contact-info">
+                <p><strong>事務局メールアドレス</strong></p>
+                <p><a href="mailto:yuukyukaipe@gmail.com">yuukyukaipe@gmail.com</a></p>
+                <p style="margin-top: 20px;">※お急ぎの場合は、直接メールにてご連絡ください。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>悠久会技術士部会</h4>
+                    <p>事務局連絡先:yuukyukaipe@gmail.com<br>
+                    ※入会希望の方は、お名前・卒業学科・卒年・取得部門をお知らせください。</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="https://www.eng.niigata-u.ac.jp/~yukyukai/" target="_blank">悠久会本部サイト</a></li>
+                        <li><a href="https://www.niigata-u.ac.jp/" target="_blank">新潟大学</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright">&copy; Yukyukai P.E. Group. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // お問い合わせ種別に応じて表示項目を切り替え
+        document.getElementById('inquiryType').addEventListener('change', function() {
+            const isJoin = this.value === 'join';
+            const graduationDeptGroup = document.getElementById('graduationDeptGroup');
+            const graduationYearGroup = document.getElementById('graduationYearGroup');
+            const departmentGroup = document.getElementById('departmentGroup');
+            
+            if (isJoin) {
+                graduationDeptGroup.style.display = 'block';
+                graduationYearGroup.style.display = 'block';
+                departmentGroup.style.display = 'block';
+                document.getElementById('graduationDept').required = true;
+                document.getElementById('graduationYear').required = true;
+            } else {
+                graduationDeptGroup.style.display = 'none';
+                graduationYearGroup.style.display = 'none';
+                departmentGroup.style.display = 'none';
+                document.getElementById('graduationDept').required = false;
+                document.getElementById('graduationYear').required = false;
+            }
+        });
+
+        // フォーム送信時の処理
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            const inquiryType = document.getElementById('inquiryType').value;
+            if (inquiryType === 'join') {
+                const graduationDept = document.getElementById('graduationDept').value;
+                const graduationYear = document.getElementById('graduationYear').value;
+                if (!graduationDept || !graduationYear) {
+                    e.preventDefault();
+                    alert('入会申込の場合は、卒業学科と卒年を入力してください。');
+                    return false;
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
+
