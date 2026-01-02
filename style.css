@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Shippori+Mincho:wght@400;700&display=swap');
 
 /* 基本設定 */
 body {
@@ -400,5 +401,121 @@ footer {
     }
     .contact-form-container {
         padding: 20px;
+    }
+}
+
+/* =========================================
+   Premium Legacy Section Styles
+   ========================================= */
+
+.bg-light-pattern {
+    background-color: #f8f9fa;
+    background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+    background-size: 20px 20px;
+    padding: 80px 0;
+}
+
+.legacy-card {
+    background: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 51, 102, 0.1);
+    position: relative;
+    overflow: hidden;
+    border-top: 5px solid #003366;
+}
+
+/* 装飾的な背景透かし文字 */
+.legacy-card::before {
+    content: "History";
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 15rem;
+    color: rgba(0, 51, 102, 0.03);
+    font-weight: 700;
+    line-height: 1;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.legacy-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.legacy-header .en-title {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #cc0000;
+    letter-spacing: 0.1em;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.legacy-header .jp-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 2rem;
+    color: #003366;
+    margin: 0;
+    font-weight: 700;
+}
+
+.legacy-body {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.quote-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: #cc0000;
+    line-height: 1;
+    height: 40px;
+    opacity: 0.2;
+    margin-bottom: -20px;
+}
+
+.quote-text {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.25rem;
+    line-height: 2.2;
+    color: #333;
+    margin-bottom: 30px;
+    font-feature-settings: "palt";
+}
+
+.legacy-card cite {
+    display: inline-block;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-style: normal;
+    font-size: 0.9rem;
+    color: #666;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+    .legacy-card {
+        padding: 40px 20px;
+    }
+    .quote-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        text-align: left;
+    }
+    .legacy-card::before {
+        font-size: 8rem;
+    }
+    .pc-only {
+        display: none;
     }
 }
